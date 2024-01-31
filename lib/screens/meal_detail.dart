@@ -29,8 +29,22 @@ class MealDetailScreen extends ConsumerWidget {
                 ),
               );
             },
-            icon: const Icon(Icons.star_border),
-          )
+            // icon: const Icon(Icons.star_border),
+            icon: AnimatedSwitcher(
+              duration: const Duration(milliseconds: 300),
+              // child: isFavorite ? Icons.star : Icons.star_border,
+              child: const Icon(
+                Icons.star_border,
+                // key: ValueKey(isFavorite),
+              ),
+              transitionBuilder: (child, animation) {
+                return RotationTransition(
+                  turns: Tween(begin: .5, end: 1.0).animate(animation),
+                  child: child,
+                );
+              },
+            ),
+          ),
         ],
         title: Text(meal.title),
       ),
