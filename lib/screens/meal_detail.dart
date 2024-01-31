@@ -18,8 +18,9 @@ class MealDetailScreen extends ConsumerWidget {
         actions: [
           IconButton(
             onPressed: () {
-              final wasAdded =
-                  ref.read(favProvider.notifier).toggleMealFavStatus(meal);
+              final wasAdded = ref
+                  .read(favoriteMealsProvider.notifier)
+                  .toggleMealFavoriteStatus(meal);
               ScaffoldMessenger.of(context).clearSnackBars();
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(

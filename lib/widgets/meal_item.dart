@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:meals_app/models/meal.dart';
-import 'package:meals_app/widgets/meal_item_trait.dart';
 import 'package:transparent_image/transparent_image.dart';
+
+import 'package:meals_app/widgets/meal_item_trait.dart';
+import 'package:meals_app/models/meal.dart';
 
 class MealItem extends StatelessWidget {
   const MealItem({
@@ -28,7 +29,7 @@ class MealItem extends StatelessWidget {
     return Card(
       margin: const EdgeInsets.all(8),
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(8),
       ),
       clipBehavior: Clip.hardEdge,
       elevation: 2,
@@ -52,7 +53,7 @@ class MealItem extends StatelessWidget {
               child: Container(
                 color: Colors.black54,
                 padding:
-                    const EdgeInsets.symmetric(vertical: 5, horizontal: 44),
+                    const EdgeInsets.symmetric(vertical: 6, horizontal: 44),
                 child: Column(
                   children: [
                     Text(
@@ -60,7 +61,7 @@ class MealItem extends StatelessWidget {
                       maxLines: 2,
                       textAlign: TextAlign.center,
                       softWrap: true,
-                      overflow: TextOverflow.ellipsis,
+                      overflow: TextOverflow.ellipsis, // Very long text ...
                       style: const TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
@@ -84,13 +85,13 @@ class MealItem extends StatelessWidget {
                         MealItemTrait(
                           icon: Icons.attach_money,
                           label: affordabilityText,
-                        ),
+                        )
                       ],
                     ),
                   ],
                 ),
               ),
-            ),
+            )
           ],
         ),
       ),

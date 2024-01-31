@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:meals_app/screens/meal_detail.dart';
-import 'package:meals_app/widgets/meal_item.dart';
 
-import '../models/meal.dart';
+import 'package:meals_app/models/meal.dart';
+import 'package:meals_app/screens/meal_details.dart';
+import 'package:meals_app/widgets/meal_item.dart';
 
 class MealsScreen extends StatelessWidget {
   const MealsScreen({
@@ -14,10 +14,10 @@ class MealsScreen extends StatelessWidget {
   final String? title;
   final List<Meal> meals;
 
-  void _selectMeal(BuildContext context, Meal meal) {
+  void selectMeal(BuildContext context, Meal meal) {
     Navigator.of(context).push(
       MaterialPageRoute(
-        builder: (ctx) => MealDetailScreen(
+        builder: (ctx) => MealDetailsScreen(
           meal: meal,
         ),
       ),
@@ -31,19 +31,17 @@ class MealsScreen extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           Text(
-            'Uh oh... nothing here!',
-            style: Theme.of(context)
-                .textTheme
-                .headlineLarge!
-                .copyWith(color: Theme.of(context).colorScheme.onBackground),
+            'Uh oh ... nothing here!',
+            style: Theme.of(context).textTheme.headlineLarge!.copyWith(
+                  color: Theme.of(context).colorScheme.onBackground,
+                ),
           ),
           const SizedBox(height: 16),
           Text(
-            'try selecting a different category',
-            style: Theme.of(context)
-                .textTheme
-                .bodyLarge!
-                .copyWith(color: Theme.of(context).colorScheme.onBackground),
+            'Try selecting a different category!',
+            style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                  color: Theme.of(context).colorScheme.onBackground,
+                ),
           ),
         ],
       ),
@@ -55,7 +53,7 @@ class MealsScreen extends StatelessWidget {
         itemBuilder: (ctx, index) => MealItem(
           meal: meals[index],
           onSelectMeal: (meal) {
-            _selectMeal(context, meal);
+            selectMeal(context, meal);
           },
         ),
       );

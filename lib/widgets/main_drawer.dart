@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 
 class MainDrawer extends StatelessWidget {
-  const MainDrawer({
-    required this.onSelectScreen,
-    super.key,
-  });
+  const MainDrawer({super.key, required this.onSelectScreen});
 
   final void Function(String identifier) onSelectScreen;
 
@@ -22,7 +19,7 @@ class MainDrawer extends StatelessWidget {
                   Theme.of(context)
                       .colorScheme
                       .primaryContainer
-                      .withOpacity(.8),
+                      .withOpacity(0.8),
                 ],
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
@@ -31,13 +28,13 @@ class MainDrawer extends StatelessWidget {
             child: Row(
               children: [
                 Icon(
-                  Icons.fastfood_outlined,
+                  Icons.fastfood,
                   size: 48,
                   color: Theme.of(context).colorScheme.primary,
                 ),
                 const SizedBox(width: 18),
                 Text(
-                  'Cooking up',
+                  'Cooking Up!',
                   style: Theme.of(context).textTheme.titleLarge!.copyWith(
                         color: Theme.of(context).colorScheme.primary,
                       ),
@@ -52,7 +49,7 @@ class MainDrawer extends StatelessWidget {
               color: Theme.of(context).colorScheme.onBackground,
             ),
             title: Text(
-              'meals',
+              'Meals',
               style: Theme.of(context).textTheme.titleSmall!.copyWith(
                     color: Theme.of(context).colorScheme.onBackground,
                     fontSize: 24,
